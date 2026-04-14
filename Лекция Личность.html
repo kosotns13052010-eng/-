@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лекция: Понятие о личности в психологии</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #1e293b; scroll-behavior: smooth; }
+        .glass-panel { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); }
+        .gradient-text { background: linear-gradient(135deg, #4f46e5, #9333ea); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
+        .timeline-line { position: absolute; left: 20px; top: 0; bottom: 0; width: 2px; background: #e2e8f0; }
+        .active-nav { background-color: #e0e7ff; color: #4338ca; border-right: 3px solid #4338ca; }
+        .fade-in { animation: fadeIn 0.6s ease-out forwards; opacity: 0; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .tab-btn.active { border-bottom: 2px solid #4f46e5; color: #4f46e5; font-weight: 600; }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+        .accordion-content.open { max-height: 500px; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation Sidebar -->
+    <nav class="fixed top-0 left-0 h-full w-64 bg-white border-r border-gray-200 hidden lg:block z-50 overflow-y-auto">
+        <div class="p-6">
+            <h2 class="text-xl font-bold text-gray-800 mb-8">Навигация</h2>
+            <ul class="space-y-2 text-sm font-medium text-gray-600">
+                <li><a href="#intro" class="block p-2 rounded hover:bg-indigo-50 hover:text-indigo-600 transition">Введение</a></li>
+                <li><a href="#history" class="block p-2 rounded hover:bg-indigo-50 hover:text-indigo-600 transition">История</a></li>
+                <li><a href="#concepts" class="block p-2 rounded hover:bg-indigo-50 hover:text-indigo-600 transition">Понятия</a></li>
+                <li><a href="#approaches" class="block p-2 rounded hover:bg-indigo-50 hover:text-indigo-600 transition">Подходы</a></li>
+                <li><a href="#structure" class="block p-2 rounded hover:bg-indigo-50 hover:text-indigo-600 transition">Структура</a></li>
+                <li><a href="#integration" class="block p-2 rounded hover:bg-indigo-50 hover:text-indigo-600 transition">Интеграция</a></li>
+                <li><a href="#quiz" class="block p-2 rounded hover:bg-indigo-50 hover:text-indigo-600 transition">Тест</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button id="mobile-menu-btn" class="lg:hidden fixed top-4 right-4 z-50 bg-white p-2 rounded shadow">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+    </button>
+
+    <!-- Main Content -->
+    <main class="lg:ml-64 min-h-screen">
+        
+        <!-- Header / Intro -->
+        <header id="intro" class="relative bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900 text-white py-20 px-6 lg:px-16 overflow-hidden">
+            <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+            <div class="relative z-10 max-w-4xl mx-auto text-center fade-in">
+                <span class="inline-block py-1 px-3 rounded-full bg-indigo-500/30 border border-indigo-400/50 text-sm font-medium mb-4">Психологическая лекция</span>
+                <h1 class="text-4xl lg:text-6xl font-extrabold mb-6 leading-tight">Понятие о личности<br>в психологии</h1>
+                <p class="text-lg lg:text-xl text-indigo-100 mb-8 max-w-2xl mx-auto">Индивид, личность, индивидуальность, субъект. Ключевые понятия, исторические аспекты и современные подходы.</p>
+            </div>
+        </header>
+
+        <div class="max-w-5xl mx-auto px-6 py-12 space-y-24">
+
+            <!-- Section 1: History -->
+            <section id="history" class="fade-in">
+                <div class="flex items-center mb-8">
+                    <span class="text-5xl font-bold text-gray-100 mr-4">01</span>
+                    <h2 class="text-3xl font-bold text-gray-800">Исторические аспекты</h2>
+                </div>
+                <div class="relative pl-8 border-l-2 border-indigo-200 space-y-12">
+                    <div class="relative">
+                        <div class="absolute -left-[41px] bg-indigo-600 w-6 h-6 rounded-full border-4 border-white"></div>
+                        <h3 class="text-xl font-bold text-indigo-700 mb-2">Античность</h3>
+                        <p class="text-gray-600 leading-relaxed">Аристотель: человек — «общественное животное». Стоики: акцент на нравственном самосовершенствовании.</p>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -left-[41px] bg-indigo-400 w-6 h-6 rounded-full border-4 border-white"></div>
+                        <h3 class="text-xl font-bold text-indigo-700 mb-2">Средневековье</h3>
+                        <p class="text-gray-600 leading-relaxed">Личность через призму религии: человек — творение Божие, сущность определяется отношением к Богу.</p>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -left-[41px] bg-purple-400 w-6 h-6 rounded-full border-4 border-white"></div>
+                        <h3 class="text-xl font-bold text-indigo-700 mb-2">Возрождение и Просвещение</h3>
+                        <p class="text-gray-600 leading-relaxed">Интерес к индивидуальности и свободе воли. Декарт: «Я мыслю, следовательно, я существую».</p>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -left-[41px] bg-pink-400 w-6 h-6 rounded-full border-4 border-white"></div>
+                        <h3 class="text-xl font-bold text-indigo-700 mb-2">XIX–XX вв.</h3>
+                        <p class="text-gray-600 leading-relaxed">Научная психология: Фрейд (психоанализ), Маслоу/Роджерс (гуманизм), Выготский/Леонтьев (деятельность).</p>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -left-[41px] bg-blue-500 w-6 h-6 rounded-full border-4 border-white animate-pulse"></div>
+                        <h3 class="text-xl font-bold text-indigo-700 mb-2">Современность (XXI в.)</h3>
+                        <p class="text-gray-600 leading-relaxed">Сохранение здоровья и равновесия в условиях информационной перегрузки и эмоциональной агрессии.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Concepts -->
+            <section id="concepts" class="fade-in">
+                <div class="flex items-center mb-8">
+                    <span class="text-5xl font-bold text-gray-100 mr-4">02</span>
+                    <h2 class="text-3xl font-bold text-gray-800">Основные понятия</h2>
+                </div>
+                <p class="mb-8 text-gray-600">Человек одновременно является индивидом, личностью, субъектом и индивидуальностью. Эти понятия дополняют друг друга.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Card 1 -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mr-3">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold">Индивид</h3>
+                        </div>
+                        <p class="text-sm text-gray-500 mb-3">Лат. individuum — неделимое</p>
+                        <p class="text-gray-700 mb-4">Единичный представитель человеческого рода. Носитель биологических и социальных характеристик.</p>
+                        <ul class="text-sm text-gray-600 space-y-1 list-disc list-inside">
+                            <li>Биологическая природа</li>
+                            <li>Врождённые задатки</li>
+                            <li>Индивидом <span class="font-semibold text-blue-600">рождаются</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 mr-3">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold">Личность</h3>
+                        </div>
+                        <p class="text-sm text-gray-500 mb-3">Социальное качество</p>
+                        <p class="text-gray-700 mb-4">Человек в системе социальных связей. То, что человек делает из себя сам.</p>
+                        <ul class="text-sm text-gray-600 space-y-1 list-disc list-inside">
+                            <li>Формируется в социализации</li>
+                            <li>Устойчивые черты (характер, способности)</li>
+                            <li>Личностью <span class="font-semibold text-purple-600">становятся</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 mr-3">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold">Индивидуальность</h3>
+                        </div>
+                        <p class="text-sm text-gray-500 mb-3">Неповторимое своеобразие</p>
+                        <p class="text-gray-700 mb-4">Совокупность уникальных черт, отличающих одного от другого.</p>
+                        <ul class="text-sm text-gray-600 space-y-1 list-disc list-inside">
+                            <li>Стиль деятельности и мышления</li>
+                            <li>Уникальный опыт</li>
+                            <li>Индивидуальность <span class="font-semibold text-pink-600">отстаивают</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 mr-3">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold">Субъект</h3>
+                        </div>
+                        <p class="text-sm text-gray-500 mb-3">Носитель активности</p>
+                        <p class="text-gray-700 mb-4">Способен к сознательному преобразованию действительности и самого себя.</p>
+                        <ul class="text-sm text-gray-600 space-y-1 list-disc list-inside">
+                            <li>Целенаправленность</li>
+                            <li>Саморегуляция</li>
+                            <li>Субъектом <span class="font-semibold text-orange-600">проявляют себя</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Approaches -->
+            <section id="approaches" class="fade-in">
+                <div class="flex items-center mb-8">
+                    <span class="text-5xl font-bold text-gray-100 mr-4">03</span>
+                    <h2 class="text-3xl font-bold text-gray-800">Современные подходы</h2>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                    <div class="flex border-b border-gray-200 overflow-x-auto">
+                        <button onclick="switchTab('tab-activity', this)" class="tab-btn flex-1 py-4 px-6 text-sm font-medium text-gray-500 hover:text-gray-700 focus:outline-none active">Деятельностный</button>
+                        <button onclick="switchTab('tab-cultural', this)" class="tab-btn flex-1 py-4 px-6 text-sm font-medium text-gray-500 hover:text-gray-700 focus:outline-none">Культурно-исторический</button>
+                        <button onclick="switchTab('tab-humanistic', this)" class="tab-btn flex-1 py-4 px-6 text-sm font-medium text-gray-500 hover:text-gray-700 focus:outline-none">Гуманистический</button>
+                        <button onclick="switchTab('tab-system', this)" class="tab-btn flex-1 py-4 px-6 text-sm font-medium text-gray-500 hover:text-gray-700 focus:outline-none">Системный</button>
+                    </div>
+                    
+                    <div class="p-8">
+                        <div id="tab-activity" class="tab-content">
+                            <h3 class="text-xl font-bold text-indigo-700 mb-4">Деятельностный подход</h3>
+                            <p class="text-gray-600 mb-4">А.Н. Леонтьев, С.Л. Рубинштейн. Личность формируется и проявляется в деятельности.</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-indigo-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-indigo-800">Механизмы</h4>
+                                    <p class="text-sm text-indigo-700">Интериоризация (усвоение) и Экстериоризация (воплощение).</p>
+                                </div>
+                                <div class="bg-indigo-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-indigo-800">Суть</h4>
+                                    <p class="text-sm text-indigo-700">Личность — системное качество, возникающее в процессе совместной деятельности.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab-cultural" class="tab-content hidden">
+                            <h3 class="text-xl font-bold text-purple-700 mb-4">Культурно-исторический подход</h3>
+                            <p class="text-gray-600 mb-4">Л.С. Выготский. Личность — продукт культурно-исторического развития.</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-purple-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-purple-800">Факторы</h4>
+                                    <p class="text-sm text-purple-700">Общение, усвоение знаков, социальная ситуация развития.</p>
+                                </div>
+                                <div class="bg-purple-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-purple-800">Функции</h4>
+                                    <p class="text-sm text-purple-700">Высшие психические функции (мышление, речь, воля) формируются социумом.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab-humanistic" class="tab-content hidden">
+                            <h3 class="text-xl font-bold text-pink-700 mb-4">Гуманистический подход</h3>
+                            <p class="text-gray-600 mb-4">А. Маслоу, К. Роджерс. Акцент на субъективном опыте и свободе выбора.</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-pink-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-pink-800">Цель</h4>
+                                    <p class="text-sm text-pink-700">Самоактуализация — реализация своего потенциала.</p>
+                                </div>
+                                <div class="bg-pink-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-pink-800">Условия</h4>
+                                    <p class="text-sm text-pink-700">Безусловное принятие, эмпатия, конгруэнтность.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab-system" class="tab-content hidden">
+                            <h3 class="text-xl font-bold text-orange-700 mb-4">Системный подход</h3>
+                            <p class="text-gray-600 mb-4">Б.Ф. Ломов, К.К. Платонов. Личность — целостная система взаимосвязанных свойств.</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-orange-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-orange-800">Компоненты</h4>
+                                    <p class="text-sm text-orange-700">Биологические, психологические, социальные.</p>
+                                </div>
+                                <div class="bg-orange-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-orange-800">Развитие</h4>
+                                    <p class="text-sm text-orange-700">Процесс динамического равновесия и адаптации.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Structure -->
+            <section id="structure" class="fade-in">
+                <div class="flex items-center mb-8">
+                    <span class="text-5xl font-bold text-gray-100 mr-4">04</span>
+                    <h2 class="text-3xl font-bold text-gray-800">Структура личности</h2>
+                </div>
+
+                <!-- 4.1 Orientation -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b pb-2">Направленность</h3>
+                    <p class="text-gray-600 mb-6">Ведущее свойство, определяемое мировоззрением и мотивами. Куда направлена психическая энергия?</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                        <div class="bg-white p-5 rounded-lg shadow-sm border-l-4 border-indigo-500">
+                            <h4 class="font-bold text-lg mb-2">Интроверт</h4>
+                            <p class="text-sm text-gray-600 mb-2">Направленность внутрь.</p>
+                            <ul class="text-xs text-gray-500 list-disc list-inside space-y-1">
+                                <li>Уединение, малые группы</li>
+                                <li>Глубина мысли</li>
+                                <li>Самодостаточность</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-5 rounded-lg shadow-sm border-l-4 border-orange-500">
+                            <h4 class="font-bold text-lg mb-2">Экстраверт</h4>
+                            <p class="text-sm text-gray-600 mb-2">Направленность вовне.</p>
+                            <ul class="text-xs text-gray-500 list-disc list-inside space-y-1">
+                                <li>Общение, активность</li>
+                                <li>Коммуникабельность</li>
+                                <li>Быстрая ориентация</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-5 rounded-lg shadow-sm border-l-4 border-green-500">
+                            <h4 class="font-bold text-lg mb-2">Амбиверт</h4>
+                            <p class="text-sm text-gray-600 mb-2">Гибкий баланс.</p>
+                            <ul class="text-xs text-gray-500 list-disc list-inside space-y-1">
+                                <li>Ситуативная адаптация</li>
+                                <li>Понимание обоих типов</li>
+                                <li>Универсальность</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg text-sm text-gray-600">
+                        <strong>Типы по Холланду (профессиональная):</strong> Реалистичный, Интеллектуальный, Социальный, Конвенциальный, Предприимчивый, Артистичный.
+                    </div>
+                </div>
+
+                <!-- 4.2 Temperament -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b pb-2">Темперамент</h3>
+                    <p class="text-gray-600 mb-4">Врождённая характеристика динамики психической деятельности. Основан на типе нервной системы.</p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="bg-white p-4 rounded shadow-sm text-center">
+                            <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-2 text-2xl">🌞</div>
+                            <h4 class="font-bold">Сангвиник</h4>
+                            <p class="text-xs text-gray-500 mt-1">Сильный, уравновешенный, подвижный</p>
+                        </div>
+                        <div class="bg-white p-4 rounded shadow-sm text-center">
+                            <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-2 text-2xl">🔥</div>
+                            <h4 class="font-bold">Холерик</h4>
+                            <p class="text-xs text-gray-500 mt-1">Сильный, неуравновешенный, подвижный</p>
+                        </div>
+                        <div class="bg-white p-4 rounded shadow-sm text-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2 text-2xl">🧊</div>
+                            <h4 class="font-bold">Флегматик</h4>
+                            <p class="text-xs text-gray-500 mt-1">Сильный, уравновешенный, инертный</p>
+                        </div>
+                        <div class="bg-white p-4 rounded shadow-sm text-center">
+                            <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-2 text-2xl">🌑</div>
+                            <h4 class="font-bold">Меланхолик</h4>
+                            <p class="text-xs text-gray-500 mt-1">Слабый, чувствительный</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4.3 Character -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b pb-2">Характер</h3>
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <p class="text-gray-700 mb-4">Совокупность устойчивых индивидуальных особенностей, складывающихся в деятельности и общении. Определяет типичные способы поведения.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">Трудолюбие</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">Доброта</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">Честность</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm">Лень</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm">Эгоизм</span>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-4 italic">Характер не врождён, а формируется прижизненно.</p>
+                    </div>
+                </div>
+
+                <!-- 4.4 Abilities -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b pb-2">Способности</h3>
+                    <p class="text-gray-600 mb-4">Индивидуально-психологические особенности, условие успешного выполнения деятельности. Формируются на основе задатков.</p>
+                    <div class="flex space-x-4 overflow-x-auto pb-4">
+                        <div class="min-w-[200px] bg-indigo-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-indigo-800 mb-2">Общие</h4>
+                            <p class="text-sm text-indigo-600">Интеллектуальные, коммуникативные, творческие.</p>
+                        </div>
+                        <div class="min-w-[200px] bg-purple-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-purple-800 mb-2">Специальные</h4>
+                            <p class="text-sm text-purple-600">Музыкальные, математические, художественные.</p>
+                        </div>
+                        <div class="min-w-[200px] bg-pink-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-pink-800 mb-2">Уровни</h4>
+                            <p class="text-sm text-pink-600">Одарённость → Талант → Гениальность.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4.5 Self-consciousness -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b pb-2">Самосознание</h3>
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <p class="text-gray-600 mb-6">Способность выделить себя из среды, определить своё отношение к ней и к самому себе.</p>
+                        <div class="space-y-4">
+                            <div class="border-l-4 border-blue-400 pl-4">
+                                <h4 class="font-bold text-blue-700">Самопознание (Кто я?)</h4>
+                                <p class="text-sm text-gray-600">Я-реальное, Я-идеальное, Я-концепция.</p>
+                            </div>
+                            <div class="border-l-4 border-green-400 pl-4">
+                                <h4 class="font-bold text-green-700">Самоотношение (Как я к себе отношусь?)</h4>
+                                <p class="text-sm text-gray-600">Самооценка (адекватная, завышенная, заниженная).</p>
+                            </div>
+                            <div class="border-l-4 border-purple-400 pl-4">
+                                <h4 class="font-bold text-purple-700">Саморегуляция (Как я управляю собой?)</h4>
+                                <p class="text-sm text-gray-600">Уровень притязаний, мотивация, воля.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Integration -->
+            <section id="integration" class="fade-in">
+                <div class="flex items-center mb-8">
+                    <span class="text-5xl font-bold text-gray-100 mr-4">05</span>
+                    <h2 class="text-3xl font-bold text-gray-800">Человек как субъект и личность</h2>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-indigo-600 text-white">
+                                <th class="p-4 rounded-tl-lg">Аспект</th>
+                                <th class="p-4">Субъект</th>
+                                <th class="p-4 rounded-tr-lg">Личность</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="p-4 font-semibold text-gray-700">Сущность</td>
+                                <td class="p-4 text-gray-600">Носитель активности</td>
+                                <td class="p-4 text-gray-600">Система устойчивых характеристик</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-semibold text-gray-700">Критерий</td>
+                                <td class="p-4 text-gray-600">Осознанность, ответственность</td>
+                                <td class="p-4 text-gray-600">Нравственность, ценности</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-semibold text-gray-700">Развитие</td>
+                                <td class="p-4 text-gray-600">Через деятельность и рефлексию</td>
+                                <td class="p-4 text-gray-600">Через социализацию</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-semibold text-gray-700">Проявление</td>
+                                <td class="p-4 text-gray-600">В творчестве, решениях</td>
+                                <td class="p-4 text-gray-600">В общении, поступках</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-6 bg-blue-50 p-4 rounded-lg border border-blue-100">
+                    <p class="text-blue-800 font-medium">Вывод: Субъектность и личностность не противопоставляются, а взаимодополняют друг друга.</p>
+                </div>
+            </section>
+
+            <!-- Section 6: Quiz -->
+            <section id="quiz" class="fade-in">
+                <div class="flex items-center mb-8">
+                    <span class="text-5xl font-bold text-gray-100 mr-4">06</span>
+                    <h2 class="text-3xl font-bold text-gray-800">Проверьте себя</h2>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                    <div id="quiz-container">
+                        <!-- Questions will be injected here -->
+                    </div>
+                    <div id="quiz-result" class="hidden text-center mt-6">
+                        <h3 class="text-2xl font-bold mb-2">Результат</h3>
+                        <p class="text-gray-600 mb-4" id="result-text"></p>
+                        <button onclick="resetQuiz()" class="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">Пройти заново</button>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <footer class="bg-gray-800 text-white py-12 text-center">
+            <p class="text-gray-400">© 2026 Лекция по психологии личности. Создано для образовательных целей.</p>
+        </footer>
+    </main>
+
+    <script>
+        // Tab Switching Logic
+        function switchTab(tabId, btnElement) {
+            // Hide all contents
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            // Remove active class from buttons
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            
+            // Show selected
+            document.getElementById(tabId).classList.remove('hidden');
+            btnElement.classList.add('active');
+        }
+
+        // Quiz Logic
+        const quizData = [
+            {
+                question: "Кто из психологов сформулировал: «Я мыслю, следовательно, я существую»?",
+                options: ["Аристотель", "Декарт", "Фрейд", "Выготский"],
+                correct: 1
+            },
+            {
+                question: "Чем является человек по определению «Индивид»?",
+                options: ["Социальным существом", "Единичным представителем рода", "Носителем активности", "Неповторимым субъектом"],
+                correct: 1
+            },
+            {
+                question: "Какой подход связывает личность с самоактуализацией?",
+                options: ["Деятельностный", "Системный", "Гуманистический", "Культурно-исторический"],
+                correct: 2
+            },
+            {
+                question: "Какой темперамент характеризуется как сильный, уравновешенный, инертный?",
+                options: ["Сангвиник", "Холерик", "Флегматик", "Меланхолик"],
+                correct: 2
+            },
+            {
+                question: "Что такое «Интериоризация»?",
+                options: ["Воплощение внутреннего во внешнем", "Усвоение социального опыта", "Отстаивание индивидуальности", "Процесс социализации"],
+                correct: 1
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        function renderQuiz() {
+            const container = document.getElementById('quiz-container');
+            if (currentQuestion >= quizData.length) {
+                showResult();
+                return;
+            }
+
+            const q = quizData[currentQuestion];
+            let html = `
+                <h3 class="text-xl font-bold mb-4">Вопрос ${currentQuestion + 1} из ${quizData.length}</h3>
+                <p class="text-lg mb-6">${q.question}</p>
+                <div class="grid grid-cols-1 gap-3">
+            `;
+            q.options.forEach((opt, idx) => {
+                html += `<button onclick="checkAnswer(${idx})" class="p-4 border rounded-lg text-left hover:bg-indigo-50 transition">${opt}</button>`;
+            });
+            html += `</div>`;
+            container.innerHTML = html;
+        }
+
+        function checkAnswer(selectedIdx) {
+            if (selectedIdx === quizData[currentQuestion].correct) {
+                score++;
+            }
+            currentQuestion++;
+            renderQuiz();
+        }
+
+        function showResult() {
+            document.getElementById('quiz-container').classList.add('hidden');
+            document.getElementById('quiz-result').classList.remove('hidden');
+            const resultText = document.getElementById('result-text');
+            const percentage = (score / quizData.length) * 100;
+            
+            let message = "";
+            if (percentage === 100) message = "Отлично! Вы прекрасно усвоили материал.";
+            else if (percentage >= 60) message = "Хороший результат, но есть над чем поработать.";
+            else message = "Рекомендуем перечитать лекцию и попробовать снова.";
+            
+            resultText.textContent = `${score} из ${quizData.length} правильных ответов. ${message}`;
+        }
+
+        function resetQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            document.getElementById('quiz-container').classList.remove('hidden');
+            document.getElementById('quiz-result').classList.add('hidden');
+            renderQuiz();
+        }
+
+        // Scroll Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile Menu
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('hidden');
+            nav.classList.toggle('fixed');
+            nav.classList.toggle('inset-0');
+            nav.classList.toggle('z-50');
+        });
+
+        // Initialize
+        renderQuiz();
+    </script>
+</body>
+</html>
+
